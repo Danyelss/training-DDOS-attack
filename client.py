@@ -9,3 +9,5 @@ def main():
 
 if __name__ == "main":
     main()
+
+# ToDo: Automatic reconnect - 4 in under 3 sec
