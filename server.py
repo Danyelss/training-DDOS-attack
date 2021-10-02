@@ -1,13 +1,14 @@
 import socket
 
 
-if __name__ == "__main__":
+def main()
 	# next create a socket object
 	s = socket.socket()
 	print ("Socket successfully created")
+
 	# reserve a port on your computer in our
-	# case it is 12345 but it can be anything
 	port = 8080
+	
 	# Next bind to the port
 	# we have not typed any ip in the ip field
 	# instead we have inputted an empty string
@@ -33,3 +34,6 @@ if __name__ == "__main__":
 		c.close()
 		# Breaking once connection closed
 		break
+
+if __name__ == "__main__":
+	main()
