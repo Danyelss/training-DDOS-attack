@@ -25,6 +25,7 @@ def main()
 	# an error occurs
 
 	while True:
+		print ('Check code')
 		# Establish connection with client.
 		c, addr = s.accept()
 		print ('Got connection from', addr )
