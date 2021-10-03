@@ -2,7 +2,7 @@ import socket
 import time
 
 def main():
-    while true:
+    while True:
         s = socket.socket()
         port = 8080
         s.connect(('10.0.0.9', port))
