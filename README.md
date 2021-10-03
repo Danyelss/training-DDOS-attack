@@ -5,3 +5,5 @@ Rather than have only one single place for the full version history of the softw
 Git has been designed with the integrity of managed source code as a top priority. 
 The content of the files as well as the true relationships between files and directories, versions, tags and commits, all of these objects in the Git repository are secured with a cryptographically secure hashing algorithm called SHA1.
 This protects the code and the change history against both accidental and malicious change and ensures that the history is fully traceable.
+jj
+kk
