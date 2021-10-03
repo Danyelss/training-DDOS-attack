@@ -17,7 +17,7 @@ class ThreadedServer(object):
             threading.Thread(target = self.listenToClient,args = (client,address)).start()
 
     def listenToClient(self, client, address):
-        print ('Connected to ', addr )
+        print ('Connected to ', address )
         try:
             client.send('I am the main server'.encode())
         except:
