@@ -23,7 +23,7 @@ class ThreadedServer(object):
                 print("Refusing to answer to " + str(address[0]) + " because it made a request " + str(self.timer - addrs_dict[address[0]] + time.time()) + " seconds ago" )
 
     def listenToClient(self, client, address):
-        print ('Connected to ', address )
+        print ('Connected to ', address[0] )
         try:
             client.send('I am the main server'.encode())
         except:
