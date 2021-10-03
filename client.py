@@ -10,7 +10,7 @@ def main():
             string = s.recv(1024).decode()
             if string:
                 print (string)
-        except:
+        finally:
             s.close()
         time.sleep(0.75)
 
