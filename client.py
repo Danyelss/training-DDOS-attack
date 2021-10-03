@@ -1,4 +1,5 @@
 import socket
+import time
 
 def main():
     s = socket.socket()
@@ -7,6 +8,7 @@ def main():
         s.connect(('10.0.0.2', port))
         print (s.recv(1024).decode())
         s.close()
+        time.sleep(0.75)
 
 if __name__ == "main":
     main()
