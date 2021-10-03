@@ -1,7 +1,8 @@
 import socket
 import threading
 import time
-addrs_dict = {}
+addrs_dict = {} # address dictionary
+
 class ThreadedServer(object):
     def __init__(self, host, port):
         self.host = host
@@ -12,12 +13,12 @@ class ThreadedServer(object):
         self.sock.bind((self.host, self.port))
 
     def listen(self):
-        self.sock.listen(5)
+        self.sock.listen(5) # socket is listening
         while True:
-            client, address = self.sock.accept()
-            if address[0] not in addrs_dict.keys() or addrs_dict[address[0]] <= time.time():
-                addrs_dict[address[0]] = time.time() + self.timer
-                threading.Thread(target = self.listenToClient,args = (client,address)).start()
+            client, address = self.sock.accept() # accept connection
+            if address[0] not in addrs_dict.keys() or addrs_dict[address[0]] <= time.time(): #check if IP already in address dictionary
+                addrs_dict[address[0]] = time.time() + self.timer # add if not or change time for those in
+                threading.Thread(target = self.listenToClient,args = (client,address)).start() # start connection 
             else:
                 client.close()
                 print("Refusing to answer to " + str(address[0]) + " because it made a request " + str(self.timer - addrs_dict[address[0]] + time.time()) + " seconds ago" )
