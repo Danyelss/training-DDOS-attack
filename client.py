@@ -5,7 +5,7 @@ def main():
     s = socket.socket()
     port = 8080
     while true:
-        s.connect(('10.0.0.2', port))
+        s.connect(('10.0.0.9', port))
         print (s.recv(1024).decode())
         s.close()
         time.sleep(0.75)
