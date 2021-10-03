@@ -11,6 +11,7 @@ class ThreadedServer(object):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.bind((self.host, self.port))
+        self.formatter = "{0:.6f}"
 
     def listen(self):
         self.sock.listen(5) # socket is listening
@@ -21,7 +22,7 @@ class ThreadedServer(object):
                 threading.Thread(target = self.listenToClient,args = (client,address)).start() # start connection 
             else:
                 client.close()
-                print("Refusing to answer to " + str(address[0]) + " because it made a request " + str(self.timer - addrs_dict[address[0]] + time.time()) + " seconds ago" )
+                print("Refusing to answer to " + str(address[0]) + " because it made a request " + str( self.formatter.format(self.timer - addrs_dict[address[0]] + time.time())) + " seconds ago" )
 
     def listenToClient(self, client, address):
         print ('Connected to ' + address[0] )
