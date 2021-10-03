@@ -29,7 +29,7 @@ def main():
 		c, addr = s.accept()
 		print ('Connected to ', addr )
 		# send a thank you message to the client. encoding to send byte type.
-		c.send('“I am the main server'.encode())
+		c.send('I am the main server'.encode())
 		# Close the connection with the client
 		c.close()
 		# Breaking once connection closed
