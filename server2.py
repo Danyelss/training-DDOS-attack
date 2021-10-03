@@ -17,27 +17,13 @@ class ThreadedServer(object):
             threading.Thread(target = self.listenToClient,args = (client,address)).start()
 
     def listenToClient(self, client, address):
-        size = 1024
-        while True:
-            try:
-                data = client.recv(size)
-                if data:
-                    # Set the response to echo back the recieved data 
-                    response = data
-                    client.send(response)
-                else:
-                    raise error('Client disconnected')
-            except:
-                client.close()
-                return False
+        print ('Connected to ', addr )
+        try:
+            client.send('I am the main server'.encode())
+        except:
+            client.close()
+        return False
 
 if __name__ == "__main__":
-    while True:
-        port_num = 8080
-        try:
-            port_num = int(port_num)
-            break
-        except ValueError:
-            pass
-
+    port_num = 8080
     ThreadedServer('',port_num).listen()
