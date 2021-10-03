@@ -1,13 +1,14 @@
 import socket
 
 
-if __name__ == "__main__":
+def main():
 	# next create a socket object
 	s = socket.socket()
 	print ("Socket successfully created")
+
 	# reserve a port on your computer in our
-	# case it is 12345 but it can be anything
 	port = 8080
+	
 	# Next bind to the port
 	# we have not typed any ip in the ip field
 	# instead we have inputted an empty string
@@ -26,10 +27,17 @@ if __name__ == "__main__":
 	while True:
 		# Establish connection with client.
 		c, addr = s.accept()
-		print ('Got connection from', addr )
+		print ('Connected to ', addr )
 		# send a thank you message to the client. encoding to send byte type.
-		c.send('Thank you for connecting'.encode())
+		c.send('“I am the main server'.encode())
 		# Close the connection with the client
 		c.close()
 		# Breaking once connection closed
 		break
+
+if __name__ == "__main__":
+	main()
+
+# Create a thread which will only save the last connected IPs
+# Use dictionary for faster shearch
+# Auto update function ( deletes the IPs which connected more than 3 seconds ago )
