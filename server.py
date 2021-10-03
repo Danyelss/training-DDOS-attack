@@ -1,7 +1,7 @@
 import socket
 
 
-def main()
+def main():
 	# next create a socket object
 	s = socket.socket()
 	print ("Socket successfully created")
@@ -25,12 +25,11 @@ def main()
 	# an error occurs
 
 	while True:
-		print ('Check code')
 		# Establish connection with client.
 		c, addr = s.accept()
-		print ('Got connection from', addr )
+		print ('Connected to ', addr )
 		# send a thank you message to the client. encoding to send byte type.
-		c.send('Thank you for connecting'.encode())
+		c.send('“I am the main server'.encode())
 		# Close the connection with the client
 		c.close()
 		# Breaking once connection closed
@@ -38,3 +37,7 @@ def main()
 
 if __name__ == "__main__":
 	main()
+
+# Create a thread which will only save the last connected IPs
+# Use dictionary for faster shearch
+# Auto update function ( deletes the IPs which connected more than 3 seconds ago )
