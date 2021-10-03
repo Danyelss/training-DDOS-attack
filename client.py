@@ -10,7 +10,7 @@ def main():
         s.close()
         time.sleep(0.75)
 
-if __name__ == "main":
+if __name__ == "__main__":
     main()
 
 # ToDo: Automatic reconnect - 4 in under 3 sec
