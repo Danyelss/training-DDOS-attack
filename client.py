@@ -6,7 +6,9 @@ def main():
         s = socket.socket()
         port = 8080
         s.connect(('10.0.0.9', port))
-        print (s.recv(1024).decode())
+        string = s.recv(1024).decode()
+        if string != ""
+            print (string)
         s.close()
         time.sleep(0.75)
 
