@@ -6,7 +6,7 @@ def main():
         s = socket.socket()
         port = 8080
         try:
-            s.connect(('10.0.0.9', port))
+            s.connect(('10.166.0.2', port))
             string = s.recv(1024).decode()
             if string:
                 print (string)
